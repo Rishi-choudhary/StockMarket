@@ -1,0 +1,26 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Log In
+{% endblock %}
+
+{% block main %}
+<div class="row register">
+    <div class="col-5 image">
+
+        <img src="../static/Key-rafiki.svg" alt="">
+
+    </div>
+    <div class="col-5">
+    <form action="/login" class="mt-5" method="post">
+        <div class="form-group">
+            <input autocomplete="off" autofocus class="form-control" name="username" placeholder="Username" type="text">
+        </div>
+        <div class="form-group">
+            <input class="form-control" name="password" placeholder="Password" type="password">
+        </div>
+        <button class="btn btn-primary px-5  py-3" type="submit">Log In</button>
+    </form>
+    </div>
+</div>
+{% endblock %}

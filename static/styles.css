@@ -1,0 +1,100 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+  background-color: #60b9df;
+}
+
+nav{
+    border: none;
+    border-style: none;
+    background-color: #00337C;
+}
+
+nav .navbar-brand
+{
+    /* size for brand */
+    font-size: xx-large;
+}
+
+
+nav .navbar-brand .green
+{
+    color: #03C988;
+}
+
+ul li{
+    margin-left: 1rem;
+    
+}
+
+ul li button a{
+    color: aliceblue;
+}
+
+main .form-control
+{
+    /* center form controls */
+    display: inline-block;
+
+    /* override Bootstrap's 100% width for form controls */
+    width: auto;
+}
+
+main
+{
+    /* scroll horizontally as needed */
+    overflow-x: auto;
+
+    /* center contents */
+    text-align: center;
+}
+
+main img
+{
+    /* constrain images on small screens */
+    max-width: 100%;
+}
+
+.navbar-dark .navbar-nav .nav-link {
+    color: rgb(255 255 255);
+}
+
+
+.image{
+    height: 100%;
+    width: 100%;
+}
+
+.sell,.buy{
+    margin: 20px;
+}
+.buy{
+    margin-top: 30px;
+}
+.row h3{
+    color: #00337C;
+    margin-top: 10px;
+
+}
+
+.row{
+    height: 70vh;
+    border-radius: 1rem;
+    width: 100%;
+    background-color: #1C82AD;
+}
+
+.register{
+    margin-top: 2rem;
+}
+hr{
+    border: 2px solid black;
+}
+.nav-link{
+    font: 1rem;
+    color:#03C988;
+}

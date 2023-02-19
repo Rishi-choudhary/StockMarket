@@ -1,0 +1,10 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Quote
+{% endblock %}
+
+
+{% block main %}
+  <h1 style="color:white; font-size:2rem;">  A share of {{ symbol['name'] }} ({{symbol['symbol']}}) costs ₹{{symbol['price']}}. </h1>
+{% endblock %}

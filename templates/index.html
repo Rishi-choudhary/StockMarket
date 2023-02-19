@@ -1,0 +1,77 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    wallet
+{% endblock %}
+
+{% block main %}
+
+
+
+
+<div class="row">
+
+<div col-3>
+    <h3>BUY</h3>
+<form action="/buy" class="buy" method="post">
+    <div class="form-group">
+
+        <input class="form-control" name="symbol" placeholder="Symbol" type="text">
+    </div>
+    <div class="form-group">
+        <input class="form-control" name="shares" placeholder="Shares" type="number" min="0">
+    </div>
+    <button class="btn btn-primary" type="submit">Buy</button>
+</form>
+    <hr>
+    <h3>SELL</h3>
+<form action="/sell"class="sell" method="post">
+    <div class="form-group">
+        <select class="form-control" name="symbol" type="text">
+            <option value="" disabled selected>Symbol</option>
+            {% for row in portfolio %}
+                <option value= "{{row['symbol']}}"> {{row['symbol']}} </option>
+            {% endfor %}
+        </select>
+    </div>
+    <div class="form-group">
+        <input class="form-control" name="shares" placeholder="Shares" type="number" min="0">
+    </div>
+    <button class="btn btn-primary" type="submit">Sell</button>
+</form>
+</div>
+<div class="col-6">
+    
+      <div class="data">
+        <iframe
+          id="st_7a2ea0af2faa4018942fdb3fdc41a1d0"
+          frameborder="0"
+          scrolling="no"
+          width="800"
+          height="100%"
+          src="https://api.stockdio.com/visualization/financial/charts/v1/historicalpricesboard?app-key=4C923FABCAB140CF80F57C96172128FD&symbols=AAPL;MSFT;GOOG;HPQ;ORCL&dividends=true&splits=true&palette=Aurora&title=Watch%20List&grayscaleLogo=true&animate=true&onload=st_7a2ea0af2faa4018942fdb3fdc41a1d0"
+        ></iframe>
+
+
+
+
+
+</div>
+</div>
+
+
+<script>
+    if (typeof(stockdio_events) == "undefined") {
+       stockdio_events = true;
+       var stockdio_eventMethod = window.addEventListener ? "addEventListener" : "attachEvent";
+       var stockdio_eventer = window[stockdio_eventMethod];
+       var stockdio_messageEvent = stockdio_eventMethod == "attachEvent" ? "onmessage" : "message";
+       stockdio_eventer(stockdio_messageEvent, function (e) {
+          if (typeof(e.data) != "undefined" && typeof(e.data.method) != "undefined") {
+             eval(e.data.method);
+          }
+       },false);
+    }
+ </script>
+
+{% endblock %}
