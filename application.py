@@ -101,12 +101,6 @@ def buy():
 
         return redirect("/")
 
-# # if request method is GET, display buy.html form
-# if request.method == "GET":
-#     return render_template("")
-
-# # if request method is POST
-# else:
     # save stock symbol, number of shares, and quote dict from form
     symbol = request.form.get("symbol")
     shares = request.form.get("shares")
@@ -404,50 +398,6 @@ def sell():
 
         # redirect to index page
         return redirect("/wallet")
-
-
-
-# @app.route("/graph", methods=["GET", "POST"])
-# @login_required
-# def graph():
-#         if request.method == "GET":
-#             return redirect("/")
-#         else:
-#             symbol = request.form.get("symbol")
-#             data = yfinance.Ticker(symbol)
-#             df = yf.download(tickers=symbol,period='1d',interval='1m')
-
-
-#             # Declare plotly figure (go)
-#             fig=go.Figure()
-
-#             fig.add_trace(go.Candlestick(x=df.index,
-#                             open=df['Open'],
-#                             high=df['High'],
-#                             low=df['Low'],
-#                             close=df['Close'], name = 'market data'))
-
-#             fig.update_layout(
-#                 title= str(symbol)+' Live Share Price:',
-#                 yaxis_title='Stock Price (USD per Shares)')               
-
-#             fig.update_xaxes(
-#                 rangeslider_visible=True,
-#                 rangeselector=dict(
-#                     buttons=list([
-#                         dict(count=15, label="15m", step="minute", stepmode="backward"),
-#                         dict(count=45, label="45m", step="minute", stepmode="backward"),
-#                         dict(count=1, label="HTD", step="hour", stepmode="todate"),
-#                         dict(count=3, label="3h", step="hour", stepmode="backward"),
-#                         dict(step="all")
-#                     ])
-#                 )
-#             )
-#             feg.show()
-#             fig.write_html("./graph.html")
-#             return redirect("/")
-            
-
 
 def errorhandler(e):
     """Handle error"""
