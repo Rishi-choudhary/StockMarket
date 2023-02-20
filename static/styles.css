@@ -71,21 +71,37 @@ main img
 
 .sell,.buy{
     margin: 20px;
+    border: 2px solid #021061;
+    border-radius: 1rem;
+    padding: 10px 0 10px 0;
 }
 .buy{
     margin-top: 30px;
+    
+
 }
 .row h3{
-    color: #00337C;
+    color: #ffffff;
     margin-top: 10px;
 
 }
 
+.col-7{
+    width: 100% !important;
+    height: 100%;
+}
 .row{
-    height: 70vh;
+    height: auto;
     border-radius: 1rem;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
     width: 100%;
     background-color: #1C82AD;
+}
+
+.p-5{
+    padding: 2.5rem !important;
 }
 
 .register{
@@ -93,6 +109,11 @@ main img
 }
 hr{
     border: 2px solid black;
+}
+.tradingview-widget-container{
+    padding: 20px;
+
+    width: 100%;
 }
 .nav-link{
     font: 1rem;

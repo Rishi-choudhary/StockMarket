@@ -1,17 +1,28 @@
-import os
-import datetime
-
+import yfinance
+import plotly.graph_objects as go
 from cs50 import SQL
 from flask import Flask, flash, jsonify, redirect, render_template, request, session
 from flask_session import Session
 from tempfile import mkdtemp
 from werkzeug.exceptions import default_exceptions, HTTPException, InternalServerError
 from werkzeug.security import check_password_hash, generate_password_hash
+# Raw Package
+import numpy as np
+import pandas as pd
+from pandas_datareader import data as pdr
 
+# Market Data 
+import yfinance as yf
+
+#Graphing/Visualization
+import datetime as dt 
+import plotly.graph_objs as go 
 from helpers import apology, login_required, lookup, inr
 
 # Configure application
 app = Flask(__name__)
+
+yf.pdr_override()
 
 # Ensure templates are auto-reloaded
 app.config["TEMPLATES_AUTO_RELOAD"] = True
@@ -38,9 +49,6 @@ Session(app)
 # Configure CS50 Library to use SQLite database
 db = SQL("sqlite:///finance.db")
 
-# Make sure API key is set
-#if not os.environ.get("API_KEY"):
- #   raise RuntimeError("API_KEY not set")
  
 @app.route("/")
 @login_required
@@ -396,6 +404,49 @@ def sell():
 
         # redirect to index page
         return redirect("/wallet")
+
+
+
+# @app.route("/graph", methods=["GET", "POST"])
+# @login_required
+# def graph():
+#         if request.method == "GET":
+#             return redirect("/")
+#         else:
+#             symbol = request.form.get("symbol")
+#             data = yfinance.Ticker(symbol)
+#             df = yf.download(tickers=symbol,period='1d',interval='1m')
+
+
+#             # Declare plotly figure (go)
+#             fig=go.Figure()
+
+#             fig.add_trace(go.Candlestick(x=df.index,
+#                             open=df['Open'],
+#                             high=df['High'],
+#                             low=df['Low'],
+#                             close=df['Close'], name = 'market data'))
+
+#             fig.update_layout(
+#                 title= str(symbol)+' Live Share Price:',
+#                 yaxis_title='Stock Price (USD per Shares)')               
+
+#             fig.update_xaxes(
+#                 rangeslider_visible=True,
+#                 rangeselector=dict(
+#                     buttons=list([
+#                         dict(count=15, label="15m", step="minute", stepmode="backward"),
+#                         dict(count=45, label="45m", step="minute", stepmode="backward"),
+#                         dict(count=1, label="HTD", step="hour", stepmode="todate"),
+#                         dict(count=3, label="3h", step="hour", stepmode="backward"),
+#                         dict(step="all")
+#                     ])
+#                 )
+#             )
+#             feg.show()
+#             fig.write_html("./graph.html")
+#             return redirect("/")
+            
 
 
 def errorhandler(e):
