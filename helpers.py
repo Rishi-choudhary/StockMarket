@@ -1,20 +1,17 @@
 import os
 import requests
-import urllib.parse
 from flask import redirect, render_template, session
 from functools import wraps
 import yfinance as yf 
 import json
-from nsepython import * 
+from nsetools import Nse
+
+nse = Nse()
 
 def apology(message, code=400):
     """Render message as an apology to user."""
     def escape(s):
-        """
-        Escape special characters.
-
-        https://github.com/jacebrowning/memegen#special-characters
-        """
+    
         for old, new in [("-", "--"), (" ", "-"), ("_", "__"), ("?", "~q"),
                          ("%", "~p"), ("#", "~h"), ("/", "~s"), ("\"", "''")]:
             s = s.replace(old, new)
@@ -26,7 +23,6 @@ def login_required(f):
     """
     Decorate routes to require login.
 
-    http://flask.pocoo.org/docs/1.0/patterns/viewdecorators/
     """
     @wraps(f)
     def decorated_function(*args, **kwargs):
@@ -36,17 +32,13 @@ def login_required(f):
     return decorated_function
 
 
-def lookup(symbol):
-
-    
+def lookup(symbol):    
     try:
-         
-        price = nse_eq(symbol)["priceInfo"]["close"]
-        stock = nse_eq(symbol)
+        company = nse.get_quote(symbol)
         return {
-            "name":nse_eq(symbol)["info"]["companyName"],
-            "symbol":nse_eq(symbol)["info"]["symbol"],
-            "price":nse_eq(symbol)["priceInfo"]["close"]
+            "name":company['companyName'],
+            "symbol":company['symbol'],
+            "price": company['basePrice']
             
         }
     except  (KeyError, TypeError, ValueError):
