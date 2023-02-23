@@ -2,7 +2,6 @@ import os
 import requests
 from flask import redirect, render_template, session
 from functools import wraps
-import yfinance as yf 
 import json
 from nsetools import Nse
 

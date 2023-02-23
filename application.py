@@ -11,7 +11,7 @@ from helpers import apology, login_required, lookup, inr
 # Configure application
 app = Flask(__name__)
 
-yf.pdr_override()
+
 
 # Ensure templates are auto-reloaded
 app.config["TEMPLATES_AUTO_RELOAD"] = True
