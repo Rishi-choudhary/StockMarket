@@ -5,6 +5,8 @@
 {% endblock %}
 
 {% block main %}
+<main class="container p-5">
+
 <h1 class="text-centre p-3 text-white">Check the price of Stock by entering Symbol of company
 </h1>
     <form action="/quote" method="post">
@@ -13,4 +15,5 @@
         </div>
         <button class="btn btn-primary" type="submit">Quote</button>
     </form>
+    </main>
 {% endblock %}

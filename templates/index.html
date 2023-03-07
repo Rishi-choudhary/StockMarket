@@ -1,9 +1,10 @@
-{% extends "layout.html" %} {% block title %} wallet {% endblock %} {% block main %}
+{% extends "layout.html" %} {% block title %} wallet {% endblock %}
 
-<div class="row">
-  <div class="col-4">
-    <form action="/buy" class="buy" method="post">
-    <h3>BUY</h3>
+{% block main %}
+<div class="row1 p-3 my-3">
+  <div class="column1 p-1">
+    <form action="/buy" class="buy p-2" method="post">
+      <h3>BUY</h3>
 
       <div class="form-group">
         <input
@@ -22,11 +23,11 @@
           min="0"
         />
       </div>
-      <button class="btn btn-primary" type="submit">Buy</button>
+      <button class="btn btn-primary px-5" type="submit">Buy</button>
     </form>
-    <hr>
-    <form action="/sell" class="sell" method="post">
-    <h3>SELL</h3>
+    <hr />
+    <form action="/sell" class="sell p-2" method="post">
+      <h3>SELL</h3>
 
       <div class="form-group">
         <select class="form-control" name="symbol" type="text">
@@ -45,40 +46,97 @@
           min="0"
         />
       </div>
-      <button class="btn btn-primary" type="submit">Sell</button>
+      <button class="btn btn-primary px-5" type="submit">Sell</button>
     </form>
   </div>
 
-<div class="col-">
-<!-- TradingView Widget BEGIN -->
-
-<div class="tradingview-widget-container">
-    <div id="tradingview_09e22"></div>
-    <div class="tradingview-widget-copyright"><a href="https://in.tradingview.com/symbols/NASDAQ-AAPL/" rel="noopener" target="_blank"><span class="blue-text">AAPL stock chart</span></a> by TradingView</div>
-    <script type="text/javascript" src="https://s3.tradingview.com/tv.js"></script>
-    <script type="text/javascript">
-    new TradingView.widget(
-    {
-    "width": 640,
-    "height": 510,
-    "symbol": "NASDAQ:AAPL",
-    "interval": "D",
-    "timezone": "Asia/Kolkata",
-    "theme": "dark",
-    "style": "7",
-    "locale": "in",
-    "toolbar_bg": "#f1f3f6",
-    "enable_publishing": false,
-    "allow_symbol_change": true,
-    "save_image": false,
-    "container_id": "tradingview_09e22"
-  }
-    );
-    </script>
+  <div class="column2">
+    <!-- TradingView Widget BEGIN -->
+    <div class="tradingview-widget-container">
+      <div id="tradingview_74d57"></div>
+      <div class="tradingview-widget-copyright">
+        <a
+          href="https://in.tradingview.com/symbols/NASDAQ-AAPL/"
+          rel="noopener"
+          target="_blank"
+          ><span class="blue-text">AAPL stock chart</span></a>
+        by TradingView
+      </div>
+      <script
+        type="text/javascript"
+        src="https://s3.tradingview.com/tv.js"
+      ></script>
+      <script type="text/javascript">
+        new TradingView.widget({
+          width: 830,
+          height: 530,
+          symbol: "BSE:BPCL",
+          interval: "D",
+          timezone: "Asia/Kolkata" ,
+          theme: "dark",
+          style: "2",
+          locale: "in",
+          toolbar_bg: "#f1f3f6",
+          enable_publishing: false,
+          allow_symbol_change: true,
+          watchlist: [
+            "BSE:BPCL",
+            "BSE:ONGC",
+            "BSE:TATACONSUM",
+            "BSE:WIPRO",
+            "BSE:TECHM",
+            "BSE:HINDUNILVR",
+            "BSE:NESTLEIND",
+            "BSE:TITAN",
+            "BSE:TCS",
+            "BSE:INFY",
+            "BSE:BAJAJFINSV",
+            "BSE:CIPLA",
+            "BSE:HCLTECH",
+            "BSE:BAJAJ_AUTO",
+            "BSE:ASIANPAINT",
+            "BSE:HEROMOTOCO",
+            "BSE:POWERGRID",
+            "BSE:ULTRACEMCO",
+            "BSE:MARUTI",
+            "BSE:SHREECEM",
+            "BSE:DRREDDY",
+            "BSE:EICHERMOT",
+            "BSE:BRITANNIA",
+            "BSE:HDFC",
+            "BSE:BAJFINANCE",
+            "BSE:DIVISLAB",
+            "BSE:KOTAKBANK",
+            "BSE:SUNPHARMA",
+            "BSE:ICICIBANK",
+            "BSE:SBILIFE",
+            "BSE:RELIANCE",
+            "BSE:HDFCLIFE",
+            "BSE:AXISBANK",
+            "BSE:GRASIM",
+            "BSE:SBIN",
+            "BSE:ITC",
+            "BSE:HDFCBANK",
+            "BSE:HINDALCO",
+            "BSE:LT",
+            "BSE:M_M",
+            "BSE:TATASTEEL",
+            "BSE:ONGC",
+            "BSE:BHARTIARTL",
+            "BSE:IOC",
+            "BSE:NTPC",
+            "BSE:INDUSINDBK",
+            "BSE:UPL",
+            "BSE:COALINDIA",
+            "BSE:TATAMOTORS",
+            "BSE:ADANIPORTS",
+            "BSE:JSWSTEEL",
+          ],
+          container_id: "tradingview_74d57",
+        });
+      </script>
+    </div>
   </div>
-  <!-- TradingView Widget END -->
 
+  {% endblock %}
 </div>
-
-
-{% endblock %}
